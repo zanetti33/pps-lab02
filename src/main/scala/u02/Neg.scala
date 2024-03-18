@@ -6,13 +6,12 @@ object Neg extends App {
         x => !predicate(x)
 
     
-    val negAsLambda: ([X] => Boolean) => ([X] => Boolean) = predicate => (x => !predicate(x))
+    val negAsLambda: (String => Boolean) => (String => Boolean) = predicate => (x => !predicate(x))
 
     println(neg(_ == "")("pippo") && !neg(_ == "")(""))
     println(negAsLambda(_ == "")("pippo") && !negAsLambda(_ == "")(""))
 
     var positive: Int => Boolean = _ >= 0
     println(neg(positive)(-6) && !neg(positive)(17))
-    println(negAsLambda(positive)(-6) && !negAsLambda(positive)(17))
 
 }
